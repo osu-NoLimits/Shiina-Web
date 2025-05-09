@@ -48,7 +48,7 @@ public class HandleRegister extends Shiina {
             return renderTemplate("register.html", shiina, res, req);
         }
         
-        if (!username.equals(username.trim())) {
+        if (username.matches("^[\\p{Z}\\s].*") || username.matches(".*[\\p{Z}\\s]$")) {
             shiina.data.put("error", "Username cannot start or end with whitespace");
             return renderTemplate("register.html", shiina, res, req);
         }
